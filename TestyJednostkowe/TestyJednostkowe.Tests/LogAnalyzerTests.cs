@@ -11,28 +11,15 @@ namespace TestyJednostkowe.Tests
     [TestFixture]
     public class LogAnalyzerTests
     {
-        [Test]
-        public void IsValidFileName_BadExtension_ReturnsFalse()
+        [TestCase("hsdjfhf.SLF", true)]
+        [TestCase("hsdjfhf.slf", true)]
+        [TestCase("hsdjfhf.foo", false)]
+        public void IsValidFileName_ValidExtension_CheckThem(String fileName, bool expected)
         {
             LogAnalyzer an = new LogAnalyzer();
-            bool results = an.IsValidLogFileName("hsdjfhf.foo");
-            Assert.False(results);
+            bool results = an.IsValidLogFileName(fileName);
+            Assert.AreEqual(expected, results);
         }
         
-        [Test]
-        public void IsValidFileName_GoodExtensionUppercase_ReturnsTrue()
-        {
-            LogAnalyzer an = new LogAnalyzer();
-            bool results = an.IsValidLogFileName("hsdjfhf.SLF");
-            Assert.True(results);
-        }
-
-        [Test]
-        public void IsValidFileName_GoodExtensionLowercase_ReturnsTrue()
-        {
-            LogAnalyzer an = new LogAnalyzer();
-            bool results = an.IsValidLogFileName("hsdjfhf.slf");
-            Assert.True(results);
-        }
     }
 }
