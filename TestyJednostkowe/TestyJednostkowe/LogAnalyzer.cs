@@ -10,6 +10,10 @@ namespace TestyJednostkowe
     {
         public bool IsValidLogFileName(string fileName)
         {
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentException("Podaj nazwę pliku");
+            }
             return fileName.EndsWith(".slf", StringComparison.CurrentCultureIgnoreCase);
         }
     }
