@@ -46,6 +46,18 @@ namespace TestyJednostkowe.Tests
             var ex = Assert.Throws<ArgumentException>(() => la.IsValidLogFileName(""));
             Assert.That(ex.Message, Does.Contain("Podaj nazwę pliku"));
         }
+
+
+        [TestCase("hsdjfhf.SLF", true)]
+        [TestCase("hsdjfhf.slf", true)]
+        [TestCase("hsdjfhf.foo", false)]
+        public void IsValidFileName_WhenCalled_ChangesWasLastFileNameValid(string file, bool expected)
+        {
+            LogAnalyzer2 la = new LogAnalyzer2();
+            la.IsValidLogFileName(file);
+            Assert.AreEqual(expected, la.wasLastFileNameIsValid);
+        }
+
         [Test]
         [Ignore("Ignorujemy lalalalala")]
         public void IgnoreTest()
