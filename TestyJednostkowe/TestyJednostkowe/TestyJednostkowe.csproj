@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="LogAnalyzer.cs" />
     <Compile Include="LogAnalyzer2.cs" />
+    <Compile Include="LogAnalyzerStubs.cs" />
     <Compile Include="MemCalculator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
